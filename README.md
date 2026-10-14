@@ -1,6 +1,5 @@
 # Home SOC Lab | Detection Engineering with Splunk, Sysmon & Atomic Red Team
 
-> **Portfolio repository draft — authorship and screenshot publication review required before making public.** See [Attribution review](docs/ATTRIBUTION_REVIEW_REQUIRED.md). This lab is a **single-host learning environment**, not a production SOC.
 
 ![MITRE ATT&CK coverage view](assets/screenshots/step8-01-attack-coverage.png)
 
