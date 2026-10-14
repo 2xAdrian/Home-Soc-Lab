@@ -1,0 +1,6 @@
+# Educational rule reconstruction from documented lab evidence; review field extractions before use.
+index=sysmon
+| rex "<EventID>(?<EventCode>\d+)</EventID>"
+| search EventCode=1 Image="*\\rundll32.exe" CommandLine="*comsvcs*" CommandLine="*minidump*"
+| table _time Computer Image CommandLine ParentImage
+| sort -_time

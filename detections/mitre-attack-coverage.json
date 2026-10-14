@@ -1,0 +1,100 @@
+{
+  "name": "Home SOC Lab \u2013 Detection Coverage",
+  "versions": {
+    "layer": "4.5",
+    "navigator": "5.1.0"
+  },
+  "domain": "enterprise-attack",
+  "description": "Technique coverage from a documented single-host Windows SOC lab. Test validation is limited to the simulated behaviors shown in the evidence.",
+  "filters": {
+    "platforms": [
+      "Windows"
+    ]
+  },
+  "sorting": 0,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1053",
+      "showSubtechniques": true,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1053.005",
+      "color": "#31a354",
+      "score": 1,
+      "enabled": true,
+      "comment": "DET-T1053.005-Scheduled-Task-Create: schtasks.exe /create (Sysmon EID 1); excludes Office Click-to-Run. Validated with Atomic Red Team in Splunk lab."
+    },
+    {
+      "techniqueID": "T1547",
+      "showSubtechniques": true,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1547.001",
+      "color": "#31a354",
+      "score": 1,
+      "enabled": true,
+      "comment": "DET-T1547.001-Registry-Run-Key: Value written to CurrentVersion\\Run (Sysmon EID 13). Validated with Atomic Red Team in Splunk lab."
+    },
+    {
+      "techniqueID": "T1087",
+      "showSubtechniques": true,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1087.001",
+      "color": "#31a354",
+      "score": 1,
+      "enabled": true,
+      "comment": "DET-T1087.001-Local-Account-Discovery: net/net1 user listing, excludes /add (Sysmon EID 1). Validated with Atomic Red Team in Splunk lab."
+    },
+    {
+      "techniqueID": "T1059",
+      "showSubtechniques": true,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1059.001",
+      "color": "#31a354",
+      "score": 1,
+      "enabled": true,
+      "comment": "DET-T1059.001-PowerShell-Encoded-Command: PowerShell -e/-enc/-EncodedCommand or IEX/DownloadString (Sysmon EID 1). Validated with Atomic Red Team in Splunk lab."
+    },
+    {
+      "techniqueID": "T1003",
+      "showSubtechniques": true,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1003.001",
+      "color": "#31a354",
+      "score": 1,
+      "enabled": true,
+      "comment": "DET-T1003.001-LSASS-Dump-Comsvcs: rundll32 comsvcs.dll MiniDump (Sysmon EID 1). Validated with Atomic Red Team in Splunk lab."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#ffffff",
+      "#31a354"
+    ],
+    "minValue": 0,
+    "maxValue": 1
+  },
+  "legendItems": [
+    {
+      "label": "Detected & validated",
+      "color": "#31a354"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

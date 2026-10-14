@@ -1,0 +1,9 @@
+# Educational rule reconstruction from documented lab evidence; review field extractions before use.
+index=sysmon
+| rex "<EventID>(?<EventCode>\d+)</EventID>"
+| search EventCode=1
+| search (Image="*\\net.exe" OR Image="*\\net1.exe")
+| search (CommandLine="* user*" OR CommandLine="* localgroup*")
+| search NOT CommandLine="*/add*"
+| table _time Computer Image CommandLine ParentImage
+| sort -_time

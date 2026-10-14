@@ -1,0 +1,6 @@
+# Educational rule reconstruction from documented lab evidence; review field extractions before use.
+index=sysmon
+| rex "<EventID>(?<EventCode>\d+)</EventID>"
+| search EventCode=13 TargetObject="*\\CurrentVersion\\Run\\*"
+| table _time Computer Image TargetObject Details
+| sort -_time

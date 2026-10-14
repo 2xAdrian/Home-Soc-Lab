@@ -1,0 +1,8 @@
+# Educational rule reconstruction from documented lab evidence; review field extractions before use.
+index=sysmon
+| rex "<EventID>(?<EventCode>\d+)</EventID>"
+| search EventCode=1
+| search Image="*\\schtasks.exe" CommandLine="*/create*"
+| search NOT ParentImage="*\\Integrator.exe" NOT ParentImage="*\\OfficeClickToRun.exe"
+| table _time Computer Image CommandLine ParentImage
+| sort -_time
